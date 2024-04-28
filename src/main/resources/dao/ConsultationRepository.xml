@@ -1,0 +1,29 @@
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dz.ibnrochd.master14.dao.ConsultationRepository">
+
+    <resultMap id="consultaionResult" type="your.package.Consultation">
+        <id property="id" column="id" />
+        <result property="motif" column="motif" />
+        <result property="dateConsultation" column="date_consultation" />
+
+        <result property="patient" column="id_patient" />
+    </resultMap>
+
+    <select id="findAll" resultMap="consultaionResult">
+        SELECT id, motif, date_consultation, id_patient FROM cabinet.consultation WHERE true
+    </select>
+
+
+<select id="findAllConsultations" resultMap="ConsultationResultMap">
+    SELECT * FROM cabinet.consultation
+</select>
+
+
+
+    <select id="findById" resultMap="consultaionResult">
+        SELECT id, motif, date_consultation, id_patient FROM cabinet.consultation WHERE id=#{id};
+    </select>
+</mapper>

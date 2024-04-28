@@ -1,0 +1,14 @@
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dz.ibnrochd.master14.dao.LigneConsultationMapper">
+<resultMap id="ConsultationResultMap" type="Consultation">
+  <id property="id" column="id" />
+  <result property="motif" column="motif" />
+  <result property="dateConsultation" column="date_consultation" />
+  <result property="idPatient" column="id_patient" />
+  <!-- Add more mappings as needed -->
+</resultMap>
+
+</mapper>
