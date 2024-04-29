@@ -1,4 +1,3 @@
-
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
@@ -8,7 +7,17 @@
   <result property="motif" column="motif" />
   <result property="dateConsultation" column="date_consultation" />
   <result property="idPatient" column="id_patient" />
-  <!-- Add more mappings as needed -->
 </resultMap>
 
+
+  <select id="findAll" parameterType="dz.ibnrochd.master14.model.LigneConsultation">
+
+    SELECT id, id_consultation, id_traitement, posologie, unite_temps, quantite FROM cabinet.ligne_consultation where true
+
+    <if test="id !=null and  id != ''">
+      and id = #{id}
+    </if>
+
+
+  </select>
 </mapper>

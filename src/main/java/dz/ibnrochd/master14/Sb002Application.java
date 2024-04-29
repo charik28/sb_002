@@ -1,27 +1,27 @@
 package dz.ibnrochd.master14;
 
+import dz.ibnrochd.master14.business.TraitementService;
 import dz.ibnrochd.master14.dao.*;
-import dz.ibnrochd.master14.model.Consultation;
-import dz.ibnrochd.master14.model.LigneConsultation;
-import dz.ibnrochd.master14.model.Patient;
+import dz.ibnrochd.master14.model.*;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 
 @SpringBootApplication
 public class Sb002Application implements CommandLineRunner {
-	
+	/*
 	@Autowired
 	PatientRepository patientRepository;
 	
 	// TODOf : déclarer les autres repository de la même façon que PatientRepository
-
 
 	@Autowired
 	ConsultationRepository consultationRepository;
@@ -34,6 +34,10 @@ public class Sb002Application implements CommandLineRunner {
 
 	@Autowired
 	LigneConsultationMapper  ligneConsultationMapper;
+*/
+
+	@Autowired
+	TraitementService traitementService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Sb002Application.class, args);
@@ -43,6 +47,7 @@ public class Sb002Application implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 
+		Scanner scanner = new Scanner(System.in);
 		/*
 		// TODOf : récupérer la liste de tous les patients puis afficher leurs noms
 
@@ -83,11 +88,48 @@ public class Sb002Application implements CommandLineRunner {
 		}
 
 		*/
+
+		boolean insertTraitment ;
+		do {
+			println("entrer un id pour nouvel traitement --> ");
+
+			Traitement traitement = new Traitement(scanner.nextLong());
+
+			println("entrer un nom pour nouvel traitement? --> ");
+			traitement.setNom(scanner.next());
+
+			traitementService.creerTraitment(traitement);
+
+
+
+			println("ajouter encours nouvel traitement? --> ");
+
+			insertTraitment =scanner.nextBoolean();
+
+		}while (insertTraitment );
+
+		println("choisi un id pour supprimer traitement? --> ");
+		printList(traitementService.findAll());
+
+		Traitement traitement = new Traitement(scanner.nextLong());
+
+		traitementService.supprimerTraitement(traitement);
+
+
 		
 	}
 
 	public static void println(Object o){
 		System.out.println(o);
 	}
+
+	static  void printList(List<Traitement> list){
+		for (Traitement traitement : list
+		) {
+			println(traitement);
+
+		}
+	}
+
 
 }

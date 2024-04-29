@@ -7,17 +7,17 @@ public class Traitement extends BaseModel {
 
 	private static final long serialVersionUID = 8248365590951840055L;
 
-	private Long id;
-
-
-
-
 	private String nom;
-	public void setId(Long id) {
-		this.id = id;
+
+	public Traitement(long id) {
+		this.setId(id);
 	}
 
-	public Long getId() {
-		return id;
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getNom() {
+		return nom;
 	}
 }

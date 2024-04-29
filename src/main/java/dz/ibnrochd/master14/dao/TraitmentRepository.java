@@ -16,11 +16,17 @@ import java.util.List;
 @Mapper
 public interface TraitmentRepository  {
 
+    /*
     @Results(id = "TraitementResult", value = {
             @Result(property = "id", column = "id"),
             @Result(property = "nom", column = "nom")
     })
     @Select("SELECT id, nom FROM cabinet.traitement;")
+    */
+
     List<Traitement> findAll();
 
+    void delete(Traitement traitement);
+
+    void insertTraitment(Traitement traitement);
 }

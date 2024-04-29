@@ -3,7 +3,7 @@
 
 <mapper namespace="dz.ibnrochd.master14.dao.PatientRepository">
 
-<resultMap id="PatientResultMap" type="Patient">
+<resultMap id="PatientResultMap" type="dz.ibnrochd.master14.model.Patient">
     <id property="id" column="id" />
     <collection property="consultations" ofType="Consultation" resultMap="ConsultationResultMap" />
 </resultMap>

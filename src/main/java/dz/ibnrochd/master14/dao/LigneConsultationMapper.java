@@ -14,7 +14,8 @@ import java.util.List;
  */
 @Mapper
 public interface LigneConsultationMapper {
-    @Results(id = "LigneConsultationResult", value = {
+
+    /*   @Results(id = "LigneConsultationResult", value = {
             @Result(property = "id", column = "id"),
             @Result(property = "idConsultation", column = "id_consultation"),
             @Result(property = "idTraitement", column = "id_traitement"),
@@ -24,6 +25,7 @@ public interface LigneConsultationMapper {
     })
 
     @Select("SELECT id, id_consultation, id_traitement, posologie, unite_temps, quantite FROM cabinet.ligne_consultation;")
+    */
     List<LigneConsultation> findAll();
 
 

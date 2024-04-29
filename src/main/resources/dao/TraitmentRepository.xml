@@ -1,0 +1,30 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dz.ibnrochd.master14.dao.TraitmentRepository">
+
+    <resultMap id="traitmentResultMap" type="dz.ibnrochd.master14.model.Traitment">
+        <id property="id" column="id" />
+        <collection property="consultations" ofType="Consultation" resultMap="ConsultationResultMap" />
+    </resultMap>
+
+
+<delete id="delete" parameterType="dz.ibnrochd.master14.model.Traitment">
+    DELETE FROM cabinet.traitement WHERE id = #{id}
+    <if test="nom != null and nom != ''">
+        and nom = #{nom}
+    </if>
+
+</delete>
+    <insert id="insertTraitment">
+        <choose>
+            <when test="id==null or id==''">
+                INSERT INTO cabinet.traitement (nom) VALUES (#{nom});
+            </when>
+            <otherwise>
+                INSERT INTO cabinet.traitement (id, nom) VALUES (#{id}, #{nom});
+            </otherwise>
+        </choose>
+    </insert>
+
+</mapper>
