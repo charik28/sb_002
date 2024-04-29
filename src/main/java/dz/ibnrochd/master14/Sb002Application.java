@@ -41,7 +41,11 @@ public class Sb002Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+
+
+		/*
 		// TODOf : récupérer la liste de tous les patients puis afficher leurs noms
+
 
 		List<Patient> patients = patientRepository.findAll();
 
@@ -77,6 +81,8 @@ public class Sb002Application implements CommandLineRunner {
 			println(ligne);
 
 		}
+
+		*/
 		
 	}
 
