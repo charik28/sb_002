@@ -43,5 +43,5 @@ public interface PatientRepository   {
     void insert(Patient p);
 
 
-    void delete(int id);
+    void delete(Long id);
 }

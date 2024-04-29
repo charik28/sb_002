@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
  * @Author Abdessamie Charik on 28/04/2024
  */
 @Service
-public class ConsultationService implements ConsultationServiceI {
+public class ConsultationService implements IConsultationService {
 
     @Autowired
     PatientRepository patientRepository;
 
     @Override
-    public Patient creerPatient(Patient patient){
+    public Patient creerConsultation(Patient patient){
 
         patientRepository.insert(patient);
 
@@ -25,7 +25,7 @@ public class ConsultationService implements ConsultationServiceI {
     }
 
     @Override
-    public boolean supprimerPatient(Patient patient){
+    public boolean supprimerConsultation(Patient patient){
 
         patientRepository.delete(patient.getId());
 

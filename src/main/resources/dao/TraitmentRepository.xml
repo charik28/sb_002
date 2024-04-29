@@ -8,8 +8,7 @@
         <collection property="consultations" ofType="Consultation" resultMap="ConsultationResultMap" />
     </resultMap>
 
-
-<delete id="delete" parameterType="dz.ibnrochd.master14.model.Traitment">
+<delete id="delete" >
     DELETE FROM cabinet.traitement WHERE id = #{id}
     <if test="nom != null and nom != ''">
         and nom = #{nom}

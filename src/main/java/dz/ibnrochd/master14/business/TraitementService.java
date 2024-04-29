@@ -1,6 +1,5 @@
 package dz.ibnrochd.master14.business;
 
-import dz.ibnrochd.master14.Sb002Application;
 import dz.ibnrochd.master14.dao.TraitmentRepository;
 import dz.ibnrochd.master14.model.Traitement;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,7 @@ import java.util.List;
  * @Author Abdessamie Charik on 28/04/2024
  */
 @Service
-public class TraitementService implements TraitementServiceI {
+public class TraitementService implements ITraitementService {
 
     @Autowired
     TraitmentRepository traitmentRepository;

@@ -6,14 +6,14 @@ import java.util.Date;
 import java.util.List;
 
 
-public class Patient implements Serializable {
+public class Patient extends BaseModel {
 
 	private static final long serialVersionUID = -3415388341943341473L;
 
 	@Override
 	public String toString() {
 		return "Patient{" +
-				"id=" + id +
+				"id=" + getId() +
 				", nom='" + nom + '\'' +
 				", prenom='" + prenom + '\'' +
 				", sexe='" + sexe + '\'' +
@@ -25,7 +25,7 @@ public class Patient implements Serializable {
 				"}";
 	}
 
-	private int id;
+	/*private Long id;*/
 
     private String nom;
 
@@ -49,9 +49,9 @@ public class Patient implements Serializable {
     public Patient() {		
 	}
 
-	public Patient(int id, String nom, String prenom, String sexe, Date dateNaissance, String numeroTelephone,
+	public Patient(Long id, String nom, String prenom, String sexe, Date dateNaissance, String numeroTelephone,
 			String adresse) {
-		this.id = id;
+		super.setId(id );
 		this.nom = nom;
 		this.prenom = prenom;
 		this.sexe = sexe;
@@ -62,14 +62,14 @@ public class Patient implements Serializable {
 	
 	//////////////////////////////////////////////////////
 
-	public int getId() {
+	/*public Long getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
-
+*/
 	public String getNom() {
 		return nom;
 	}
